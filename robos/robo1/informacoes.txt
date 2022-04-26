@@ -1,0 +1,5 @@
+Este robô foi desenvolvido para pesquisar no site "https://registro.br/" a disponibilidade de domínios, podendo ser um dos domínios inseridos na lista dominios do robo1 ou um dos domínios que está na planilha do Excel, como é feito no robo1_excel.
+
+A planilha do Excel facilita a pesquisa pois podem ter milhares de dominios a pesquisar.
+
+Mas também podemos usar uma variável ou uma lista no Python.
