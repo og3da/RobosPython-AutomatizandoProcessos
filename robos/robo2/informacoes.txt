@@ -1,0 +1,10 @@
+este robô foi desenvolvido para fazer pesquisas no Google e capturar informações como Título e Link dos resultados da busca.
+
+Esta sendo criada uma variavel com input para digitar a informação a buscar, logo esta entra como argumento no campo "pesquisa" (que encontramos via xpath como os demais).
+
+O robô informa quantas páginas foram encontradas (ex: 100 paginas encontradas) e pergunta quantas o usuario deseja percorrer (ex: 5 paginas).
+
+Assim, captura Título e Link de cada resultado da página e guarda na variável "resultado". Essa variável é armazenada em uma lista que usamos posteriormente.
+
+Usando um laço for escrevemos no arquivo "resultados.txt" cada informação capturada que esta dentro da lista. 
+
