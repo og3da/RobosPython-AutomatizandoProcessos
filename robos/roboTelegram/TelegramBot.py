@@ -39,13 +39,18 @@ class TelegramBot:
             except:
                 continue
 
-        print("Escolha um grupo")
-        i=0
+        print("--- GRUPOS ---")
+        print()
+        i=1
         for group in groups:
-            print(f'{i} + {group.title}')
+            print(f'{i} - {group.title}')
             i += 1
 
-        escolha = input("Digite um número: ")
+        escolha = input("Escolha um grupo: ")
         grupo_alvo = groups[int(escolha)]
         return grupo_alvo
+
+    def get_members_group(self, target_group):
+        all_participants = self.client.get_participants(target_group, aggressive=True)
+        return all_participants
         
