@@ -1,0 +1,3 @@
+Robo desenvolvido utilizando a API do telegram
+
+com o objetivo de capturar membros de um grupo alvo e adicionar a outro grupo desejado.
