@@ -46,11 +46,36 @@ class TelegramBot:
             print(f'{i} - {group.title}')
             i += 1
 
-        escolha = input("Escolha um grupo: ")
-        grupo_alvo = groups[int(escolha)]
+        escolha = input("Escolha um grupo alvo: ")
+        grupo_alvo = groups[int(escolha)-1]
         return grupo_alvo
 
     def get_members_group(self, target_group):
-        all_participants = self.client.get_participants(target_group, aggressive=True)
+        all_participants = self.client.get_participants(target_group) 
         return all_participants
-        
+
+    def add_member_toGroup(self, user, target_group):
+        target_group_entity = InputPeerChannel(target_group.id,  target_group.access_hash)
+
+
+        try:
+            print("Adicionando usuário %s" % user.id)
+
+            user_to_add = InputPeerUser(user.id, user.access_hash)
+
+            self.client(InviteToChannelRequest(target_group_entity, [user_to_add]))
+            time.sleep(2)
+            return True
+
+        except PeerFloodError:
+            print("erro de flood. Sleep de 5min")
+            time.sleep(300)
+            return False
+
+        except UserPrivacyRestrictedError:
+            print("usuario nao permite ser adicionado")
+            return False
+
+        except Exception:
+            print(f"Erro retornado: {str(Exception)}")
+            return False
